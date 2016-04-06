@@ -11,6 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'AngularController@serveApp');
+
+Route::resource('/api/currency', 'CurrencyController', [
+    'only' => [
+        'index'
+    ]
+]);
+
+Route::resource('/api/expense-tag', 'ExpenseTagController', [
+    'only' => [
+        'index'
+    ]
+]);
+
+Route::resource('/api/expense', 'ExpenseController', []);
