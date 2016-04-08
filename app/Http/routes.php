@@ -11,18 +11,24 @@
 |
 */
 
-Route::get('/', 'AngularController@serveApp');
-
-Route::resource('/api/currency', 'CurrencyController', [
-    'only' => [
-        'index'
-    ]
+Route::get('/', [
+    'as' => 'index',
+    'uses' => 'AngularController@serveApp'
 ]);
 
-Route::resource('/api/expense-tag', 'ExpenseTagController', [
-    'only' => [
-        'index'
-    ]
-]);
+$api = app(Dingo\Api\Routing\Router::class);
+$api->version('v1', function ($api) {
+    $api->resource('currency', \App\Http\Controllers\CurrencyController::class, [
+        'only' => [
+            'index'
+        ]
+    ]);
 
-Route::resource('/api/expense', 'ExpenseController', []);
+    $api->resource('expense-tag', \App\Http\Controllers\ExpenseTagController::class, [
+        'only' => [
+            'index'
+        ]
+    ]);
+
+    $api->resource('expense', \App\Http\Controllers\ExpenseController::class);
+});

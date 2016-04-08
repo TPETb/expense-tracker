@@ -16,7 +16,7 @@ class CreateCurrenciesTable extends Migration
             $table->engine = 'InnoDB';
 
             $table->increments('id');
-            $table->string('code');
+            $table->string('code')->unique();
             $table->string('symbol');
             $table->string('name');
             $table->float('from_usd_exchange_rate');
