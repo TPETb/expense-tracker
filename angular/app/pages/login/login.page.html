@@ -1,0 +1,23 @@
+<md-content class="page-container" flex="100" layout="row">
+    <form ng-submit="vm.login()" name="loginForm" flex="100" layout="column" layout-align="center center">
+        <md-input-container>
+            <label>Login:</label>
+            <input type="text" name="login" md-autofocus required>
+            <div ng-messages="loginForm.login.$error" ng-show="loginForm.login.$dirty">
+                <div ng-message="required">This is required field</div>
+            </div>
+        </md-input-container>
+
+        <md-input-container>
+            <label>Password:</label>
+            <input type="password" name="password" required>
+            <div ng-messages="loginForm.password.$error" ng-show="loginForm.password.$dirty">
+                <div ng-message="required">This is required field</div>
+            </div>
+        </md-input-container>
+
+        <div>
+            <md-button type="submit">Login</md-button>
+        </div>
+    </form>
+</md-content>

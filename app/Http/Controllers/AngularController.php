@@ -10,6 +10,6 @@ class AngularController extends Controller
 {
     public function serveApp()
     {
-        return view('angular/index');
+        return view('index');
     }
 }

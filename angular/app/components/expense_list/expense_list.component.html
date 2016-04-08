@@ -1,0 +1,14 @@
+<md-content layout="column" layout-align="center start">
+    <div class="expenses-list" ng-show="expenses.length" ng-cloak layout="column">
+        <div class="expense" flex="100" ng-repeat="expense in expenses" flex layout="row">
+            <md-icon md-svg-src="{{ expense.tag.icon }}" flex="20" class="expense-tag-icon"></md-icon>
+            <div flex="20" class="expense-amount">{{ expense.amount }}</div>
+            <div flex="30" class="expense-date">{{ expense.payment_date }}</div>
+            <div flex class="expense-comment">{{ expense.comment }}</div>
+        </div>
+    </div>
+
+    <div class="expenses-total">
+        Total: {{ total }}
+    </div>
+</md-content>
